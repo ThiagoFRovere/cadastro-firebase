@@ -22,39 +22,46 @@ let form = document.querySelector("form");
 
 form.addEventListener("submit", (e) => {
     if (email.value == "" || password.value == "") {
-        $("#erro1").removeClass("hide1");
-            setTimeout(()=>{
-                $("#erro1").addClass("hide1");
-            }, 3000)
-        // alert("Você precisa preencher todos os campos!");
+        empyt();
     }else 
         if (validatorEmail(email.value) === true){
             const emailValid = email.value;
             const passwordValid = password.value;
-            console.log(emailValid);
-            console.log(passwordValid);
-            window.location.href = "pages/home.html";
+            login(emailValid, passwordValid);
         }else{
-            $("#erro2").removeClass("hide2");
-            setTimeout(()=>{
-                $("#erro2").addClass("hide2");
-            }, 3000)
-        // alert("O formato do email deve ser Ex: name@abc.com");
+            formatEmail();
         }
     e.preventDefault();
 });
 
-email.addEventListener("keyup", () => {
-    if (validatorEmail(email.value) !== true) {
-        console.log("O formato do email deve ser Ex: name@abc.com");
-    }else{
-        console.log("pass email");
-    }
-});
+function login(emailValid, passwordValid){
+    firebase.auth().signInWithEmailAndPassword(
+        emailValid, passwordValid
+        ).then(response=>{
+            window.location.href = "./pages/home.html";
+        }).catch(erro=>{
+            // console.log('erro',erro);
+            alert("Usuario ou Senha Incorretos/Não Cadastrados")
+    })
+}
 
 function validatorEmail(email) {
     let emailPattern = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
     return emailPattern.test(email);
+}
+
+function empyt(){
+    $("#erro1").removeClass("hide1");
+    setTimeout(()=>{
+        $("#erro1").addClass("hide1");
+    }, 3000)
+}
+
+function formatEmail(){
+    $("#erro2").removeClass("hide2");
+    setTimeout(()=>{
+        $("#erro2").addClass("hide2");
+    }, 3000)
 }
 
 function singUp(){
