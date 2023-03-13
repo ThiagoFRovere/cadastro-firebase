@@ -1,4 +1,3 @@
-
 const firebaseConfig = {
     apiKey: "AIzaSyB02e9Vtf9vYDehp89pYJ1IV0gyp3pt8h0",
     authDomain: "formulario-e539d.firebaseapp.com",
@@ -15,34 +14,23 @@ const db = firebase.firestore();
 const newslatter = db.collection('thiagofrovere-site')
 
 // ------------------------- CHECK FORMULARIO LOGIN -----------------------------
-let email = document.getElementById("sendEmail");
-let password = document.getElementById("sendPassword");
+let email = document.getElementById("enterEmail");
+let password = document.getElementById("enterPassword");
+let confirmPassword = document.getElementById("confirmPassword");
 let form = document.querySelector("form");
 
 
 form.addEventListener("submit", (e) => {
-    if (email.value == "" || password.value == "") {
+    if (email.value == "" || password.value == ""|| confirmPassword.value == "") {
         empyt();
     }else 
         if (validatorEmail(email.value) === true){
-            const emailValid = email.value;
-            const passwordValid = password.value;
-            login(emailValid, passwordValid);
+            validatePassword();
         }else{
             formatEmail();
         }
     e.preventDefault();
 });
-
-function login(emailValid, passwordValid){
-    firebase.auth().signInWithEmailAndPassword(
-        emailValid, passwordValid
-        ).then(response=>{
-            window.location.href = "./pages/home.html";
-        }).catch(erro=>{
-            invalidos();
-    })
-}
 
 function validatorEmail(email) {
     let emailPattern = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
@@ -62,22 +50,41 @@ function formatEmail(){
         $("#erro2").addClass("hide2");
     }, 3000)
 }
-function invalidos(){
-    $("#erro3").removeClass("hide3");
+
+function differentPassword(){
+     $("#erro3").removeClass("hide3");
+    setTimeout(()=>{
+        $("#erro3").addClass("hide3");
+    }, 3000)
+}
+
+function success(){
+    $("#success").removeClass("success");
+    setTimeout(()=>{
+        $("#success").addClass("success");
+    }, 3000)
+}
+
+function validatePassword(){
+    if (password.value != confirmPassword.value){
+        differentPassword();
+    }else{
+        const emailValid = email.value;
+        const passwordValid = password.value;
+        register(emailValid, passwordValid);
+        success();
         setTimeout(()=>{
-            $("#erro3").addClass("hide3");
-        }, 3000)
+            window.location.href = "../index.html"
+        }, 4000)
+    }
 }
 
-function singUp(){
-    window.location.href = "pages/register.html"
-}
-
-function recovery(){
-    let emailValid = document.getElementById("recoveryPass");
-    firebase.auth().sendPasswordResetEmail(emailValid).then(()=>{
-            alert("email enviado com sucesso!!!");
-        }).catch(erro => {
-            alert(erro);
-    });
+function register(emailVerificad, passwordVerificad){
+    firebase.auth().createUserWithEmailAndPassword(
+        emailVerificad, passwordVerificad
+        ).then(()=>{
+        console.log("cadastro com sucesso")
+    }).catch(erro => {
+        alert("erro",erro);
+    })
 }

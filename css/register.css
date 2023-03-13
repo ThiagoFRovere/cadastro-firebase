@@ -19,7 +19,7 @@ body{
 .box{
     position: relative;
     width: 500px;
-    height: 850px;
+    height: 550px;
     background-color: #1c1c1c;
     overflow: hidden;
     border-radius: 4px;
@@ -46,7 +46,7 @@ body{
 }
 .box form .inputBox{
     position: relative;
-    width: 430px;
+    width: 400px;
     margin-top: 20px;
 }
 .box form .inputBox input{
@@ -103,18 +103,7 @@ body{
     gap: 20px;
     
 }
-/* .box form .buttons a{
-    border: none;
-    outline: none;
-    padding: 9px 25px;
-    background-color: #fff;
-    cursor: pointer;
-    font-size: 0.9em;
-    border-radius: 4px;
-    font-weight: 600;
-    margin-top: 30px;
-    width: 250px;
-} */
+
 
 .box form input[type="button"]{
     border: none;
@@ -147,7 +136,7 @@ body{
     top: -50%;
     left: -50%;
     width: 500px;
-    height: 850px;
+    height: 550px;
     background: linear-gradient(0deg, transparent, transparent, #45f3ff, #45f3ff, #45f3ff);
     z-index: 1;
     animation: animate 6s linear infinite;
@@ -159,7 +148,7 @@ body{
     top: -50%;
     left: -50%;
     width: 500px;
-    height: 850px;
+    height: 550px;
     background: linear-gradient(0deg, transparent, transparent, #45f3ff, #45f3ff, #45f3ff);
     z-index: 1;
     animation: animate 6s linear infinite;
@@ -177,7 +166,7 @@ body{
     top: -50%;
     left: -50%;
     width: 500px;
-    height: 850px;
+    height: 550px;
     background: linear-gradient(0deg, transparent, transparent, #ff2770, #ff2770, #ff2770);
     z-index: 1;
     animation: animate 6s linear infinite;
@@ -190,13 +179,51 @@ body{
     top: -50%;
     left: -50%;
     width: 500px;
-    height: 850px;
+    height: 550px;
     background: linear-gradient(0deg, transparent, transparent, #ff2770, #ff2770, #ff2770);
     z-index: 1;
     animation: animate 6s linear infinite;
     transform-origin: bottom right;
     animation-delay: -4.5s;
 }
+
+
+.container .box form #erro1{
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+.container .box form #erro2{
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 100%;
+}
+.container .box form #erro3{
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 100%;
+}
+.container .box form #success{
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 100%;
+}
+
+.container .box form .hide1{
+    display: none;
+}
+.container .box form .hide2{
+    display: none;
+}
+.container .box form .hide3{
+    display: none;
+}
+.container .box form .success{
+    display: none;
+}
+
+
+
 
 @keyframes animate{
     0%{

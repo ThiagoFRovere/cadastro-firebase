@@ -33,9 +33,13 @@ form.addEventListener("submit", (e) => {
 
 function recovery(emailValid){
     firebase.auth().sendPasswordResetEmail(emailValid).then(responde=>{
-            alert("email enviado com sucesso!!!");
+            // alert("email enviado com sucesso!!!");
+            success();
+            setTimeout(()=>{
+                window.location.href = "../index.html"
+            }, 4000) 
         }).catch(erro => {
-            alert("erro email nao encontrado", erro);
+            erroSearch();
     });
 }
 
@@ -44,7 +48,7 @@ function validatorEmail(email) {
     return emailPattern.test(email);
 }
 
-function empyt(){
+function erroSearch(){
     $("#erro1").removeClass("hide1");
     setTimeout(()=>{
         $("#erro1").addClass("hide1");
@@ -57,5 +61,13 @@ function formatEmail(){
         $("#erro2").addClass("hide2");
     }, 3000)
 }
+
+function success(){
+    $("#success").removeClass("success");
+    setTimeout(()=>{
+        $("#success").addClass("success");
+    }, 3000)
+}
+
 
 
