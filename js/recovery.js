@@ -1,4 +1,3 @@
-
 const firebaseConfig = {
     apiKey: "AIzaSyB02e9Vtf9vYDehp89pYJ1IV0gyp3pt8h0",
     authDomain: "formulario-e539d.firebaseapp.com",
@@ -15,34 +14,29 @@ const db = firebase.firestore();
 const newslatter = db.collection('thiagofrovere-site')
 
 // ------------------------- CHECK FORMULARIO LOGIN -----------------------------
-let email = document.getElementById("sendEmail");
-let password = document.getElementById("sendPassword");
+let email = document.getElementById("recoveryPass");
 let form = document.querySelector("form");
 
 
 form.addEventListener("submit", (e) => {
-    if (email.value == "" || password.value == "") {
+    if (email.value == "") {
         empyt();
     }else 
         if (validatorEmail(email.value) === true){
             const emailValid = email.value;
-            const passwordValid = password.value;
-            login(emailValid, passwordValid);
+            recovery(emailValid);
         }else{
             formatEmail();
         }
     e.preventDefault();
 });
 
-function login(emailValid, passwordValid){
-    firebase.auth().signInWithEmailAndPassword(
-        emailValid, passwordValid
-        ).then(response=>{
-            window.location.href = "./pages/home.html";
-        }).catch(erro=>{
-            // console.log('erro',erro);
-            alert("Usuario ou Senha Incorretos/Não Cadastrados")
-    })
+function recovery(emailValid){
+    firebase.auth().sendPasswordResetEmail(emailValid).then(responde=>{
+            alert("email enviado com sucesso!!!");
+        }).catch(erro => {
+            alert("erro email nao encontrado", erro);
+    });
 }
 
 function validatorEmail(email) {
@@ -64,15 +58,4 @@ function formatEmail(){
     }, 3000)
 }
 
-function singUp(){
-    window.location.href = "pages/register.html"
-}
 
-function recovery(){
-    let emailValid = document.getElementById("recoveryPass");
-    firebase.auth().sendPasswordResetEmail(emailValid).then(()=>{
-            alert("email enviado com sucesso!!!");
-        }).catch(erro => {
-            alert(erro);
-    });
-}
