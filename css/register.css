@@ -108,14 +108,14 @@ body{
 .box form input[type="button"]{
     border: none;
     outline: none;
-    padding: 9px 25px;
+    padding: 9px 35px;
     background-color: #fff;
     cursor: pointer;
     font-size: 0.9em;
     border-radius: 4px;
     font-weight: 600;
     margin-top: 30px;
-    width: 170px;
+    
 }
 .box form input[type="submit"]{
     border: none;
@@ -127,7 +127,6 @@ body{
     border-radius: 4px;
     font-weight: 600;
     margin-top: 30px;
-    width: 250px;
 }
 
 .box::before{
@@ -234,3 +233,29 @@ body{
     }
 }
 
+@media (max-width: 475px){
+    .box{
+        position: relative;
+        width: 500px;
+        height: 550px;
+    }
+    .box form .inputBox{
+        width: 300px;
+    }
+    .box::before{
+        width: 500px;
+        height: 550px;
+    }
+    .box::after{
+        width: 500px;
+        height: 550px;
+    }
+    .borderLine::before{
+        width: 500px;
+        height: 550px;
+    }
+    .borderLine::after{
+        width: 500px;
+        height: 550px;
+    }  
+}

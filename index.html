@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sing In</title>
     <!-- link Css Style -->
-    <link rel="stylesheet" href="../cadastro-firebase/css/index.css">
+    <link rel="stylesheet" href="./css/index.css">
     <!-- link JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <!-- link bootstrap -->
@@ -20,12 +20,12 @@
         <form id="form">
             <h2>Sign in</h2>
             <div class="inputBox">
-                <input class="sendEmail" id="sendEmail" type="text" name="sendEmail">
+                <input class="sendEmail" id="sendEmail" type="text" name="sendEmail" required="required">
                 <span>Email</span>
                 <i></i>
             </div>
             <div class="inputBox">
-                <input class="sendPassword" type="password" name="sendPassword" id="sendPassword">
+                <input class="sendPassword" type="password" name="sendPassword" id="sendPassword" required="required">
                 <span>Password</span>
                 <i></i>
             </div>
@@ -44,6 +44,9 @@
             <div id="erro3" class="alert alert-warning alert-dismissible fade show hide3" role="alert">
                 <strong>Erro:</strong> Usuário/Senha Invalido!!!!
             </div>
+            <div id="erro4" class="alert alert-warning alert-dismissible fade show hide4" role="alert">
+                <strong>Erro:</strong> Senha deve conter 6 caracteres!!!!
+            </div>
           
         </form>
 
@@ -57,3 +60,4 @@
     <script src="./js/script.js"></script>
 </body>
 </html>
+<!---->

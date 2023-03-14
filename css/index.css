@@ -18,6 +18,7 @@ body{
     background-color: #23242a;
 }
 .box{
+    display: flex;
     position: relative;
     width: 450px;
     height: 500px;
@@ -42,6 +43,9 @@ body{
     letter-spacing: 0.1em;
 }
 .box form .inputBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     width: 350px;
     margin-top: 35px;
@@ -113,6 +117,9 @@ body{
     color: #fff;
 }
 .box form .submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: none;
     outline: none;
     padding: 9px 25px;
@@ -139,6 +146,11 @@ body{
     margin-left: 5px;
     width: 100%;
 }
+.container .box form #erro4{
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 100%;
+}
 .container .box form .hide1{
     display: none;
 }
@@ -146,6 +158,9 @@ body{
     display: none;
 }
 .container .box form .hide3{
+    display: none;
+}
+.container .box form .hide4{
     display: none;
 }
 
@@ -216,3 +231,36 @@ body{
 
 
 
+@media (max-width: 475px){
+    .box{
+        position: relative;
+        width: 320px;
+        height: 550px;
+    }
+    .box form .inputBox{
+        width: 270px;
+    }
+    .box::before{
+        width: 370px;
+        height: 550px;
+    }
+    .box::after{
+        width: 370px;
+        height: 550px;
+    }
+    .borderLine::before{
+        width: 370px;
+        height: 550px;
+    }
+    .borderLine::after{
+        width: 370px;
+        height: 550px;
+    }  
+    .box form .submit{
+        margin-top: 10px;
+        width: 270px;
+    }
+    .box form{
+        padding: 20px 20px;
+    }
+}

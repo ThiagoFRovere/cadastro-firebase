@@ -5,13 +5,14 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-/* body{
+ body{
     background-color: #23242a;
-} */
+} 
 .containerP{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     background-color: black;
     width: 100%;
     height: 100vh;
