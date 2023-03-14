@@ -13,10 +13,9 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 const newslatter = db.collection('thiagofrovere-site')
 
-// ------------------------- CHECK FORMULARIO LOGIN -----------------------------
+// ------------------------- CHECK FORMULARIO FORGOT -----------------------------
 let email = document.getElementById("recoveryPass");
 let form = document.querySelector("form");
-
 
 form.addEventListener("submit", (e) => {
     if (email.value == "") {
@@ -32,14 +31,14 @@ form.addEventListener("submit", (e) => {
 });
 
 function recovery(emailValid){
-    firebase.auth().sendPasswordResetEmail(emailValid).then(responde=>{
-            // alert("email enviado com sucesso!!!");
-            success();
-            setTimeout(()=>{
-                window.location.href = "../index.html"
-            }, 4000) 
-        }).catch(erro => {
-            erroSearch();
+    firebase.auth().sendPasswordResetEmail(emailValid)
+    .then(responde=>{
+        success();
+        setTimeout(()=>{
+           window.location.href = "../index.html"
+        }, 4000) 
+    }).catch(erro => {
+        erroSearch();
     });
 }
 

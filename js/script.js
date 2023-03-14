@@ -19,7 +19,6 @@ let email = document.getElementById("sendEmail");
 let password = document.getElementById("sendPassword");
 let form = document.querySelector("form");
 
-
 form.addEventListener("submit", (e) => {
     if (email.value == "" || password.value == "") {
         empyt();
@@ -41,7 +40,7 @@ function login(emailValid, passwordValid){
             window.location.href = "./pages/home.html";
         }).catch(erro=>{
             invalidos();
-    })
+        })
 }
 
 function validatorEmail(email) {
@@ -62,6 +61,7 @@ function formatEmail(){
         $("#erro2").addClass("hide2");
     }, 3000)
 }
+
 function invalidos(){
     $("#erro3").removeClass("hide3");
         setTimeout(()=>{

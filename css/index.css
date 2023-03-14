@@ -160,9 +160,7 @@ body{
 .container .box form .hide3{
     display: none;
 }
-.container .box form .hide4{
-    display: none;
-}
+
 
 .box::before{
     content: '';
