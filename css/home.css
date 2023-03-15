@@ -37,3 +37,21 @@
 .containerP .en .h1{
     color: #fff;
 }
+.containerP .buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    gap: 20px;
+}
+.containerP input[type="button"]{
+    border: none;
+    outline: none;
+    padding: 9px 35px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-top: 30px;
+}
