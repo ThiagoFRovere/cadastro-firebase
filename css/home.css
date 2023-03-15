@@ -18,7 +18,22 @@
     height: 100vh;
     flex-direction: column;
 }
-.containerP .h1{
+.containerP .br{
+    margin-bottom: 50px;
+}
+.containerP .br .img{
+    width: 50px;
+}
+.containerP .br .h1{
     color: #fff;
 }
 
+.containerP .en{
+    margin-bottom: 50px;
+}
+.containerP .en .img{
+    width: 50px;
+}
+.containerP .en .h1{
+    color: #fff;
+}
